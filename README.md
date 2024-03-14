@@ -36,52 +36,55 @@ Here is a list of the main functionalities of the Restful-Booker application:
 
 ## Conducted Tests and Found Defects
 
-1) **Authentication (Login/Logout)**
+### 1) Authentication (Login/Logout)
 
-   **Status:** MINOR ISSUES  
-   **Found Defects:** During the ping check, the application returns code 201 instead of 200.  
-   
-   -Steps to Reproduce:
-  > 1. Install the application according to the instructions available above.
-  > 2. Install the testing tool.
-  > 3. Create an environment for http://localhost:3001/ in POSTMAN.
-  > 4. Create a collection and request for Get/Ping - HealthCheck.
-  > 5. Copy the endpoint from the documentation https://restful-booker.herokuapp.com/ping
-   
-   **Expected Result:** The application should return code 200.
-   **Actual Result:** The application returns code 201.
-   
-   **Quality Characteristics:**
-   - Functionality: The application provides the function of logging in and logging out, but sometimes returns an incorrect response code, affecting the system's functionality.
+- **Status:** Minor Issues  
+- **Found Defects:** During the ping check, the application returns code 201 instead of 200.  
 
-3) **Booking Search (GetBooking)**
+#### Steps to Reproduce:
+1. Install the application according to the instructions available above.
+2. Install the testing tool.
+3. Create an environment for http://localhost:3001/ in POSTMAN.
+4. Create a collection and request for Get/Ping - HealthCheck.
+5. Copy the endpoint from the documentation https://restful-booker.herokuapp.com/ping
+   
+#### Expected Result:
+The application should return code 200.
 
-   **Status:** WORKING  
-   **No defects found.**  
-   
-   **Quality Characteristics according to ISO 9126:**  
-   - Functionality: The application provides a booking search function that works correctly and meets user expectations.
+#### Actual Result:
+The application returns code 201.
 
-3) **Booking Search by Name (GetBookingIds - Filter by name)**
+#### Quality Characteristics:
+- Functionality: The application provides the function of logging in and logging out, but sometimes returns an incorrect response code, affecting the system's functionality.
 
-   **Status:** NOT WORKING  
-   **Found Defects:** The application returns an empty response after submitting a valid request.  
-   
-   **Description:**
-   The application returns an empty response after submitting a valid request for "Check-in" search.  
-   
-   -Steps to Reproduce:
-   >1. Install the application according to the instructions available above.
-   >2. Install the testing tool.
-   >3. Create an environment for http://localhost:3001/ in POSTMAN.
-   >4. Create a collection and request for Getbookingid - filter by name).
-   >5. Copy the endpoint from the documentation -https://restful-booker.herokuapp.com/booking?firstname=sally&lastname=brown
-   
-   **Expected Result:**
-   According to the documentation, the application should return an array of objects containing unique booking identifiers.
-   
-   **Actual Result:**
-   The application returns an empty response.
-   
-   **Quality Characteristics according to ISO 9126:**
-   - Functionality: The function of searching for bookings by name does not work correctly, affecting the system's functionality.
+### 2) Booking Search (GetBooking)
+
+- **Status:** Working  
+- **No defects found.**  
+
+#### Quality Characteristics according to ISO 9126:
+- Functionality: The application provides a booking search function that works correctly and meets user expectations.
+
+### 3) Booking Search by Name (GetBookingIds - Filter by name)
+
+- **Status:** Not Working  
+- **Found Defects:** The application returns an empty response after submitting a valid request.  
+
+#### Description:
+The application returns an empty response after submitting a valid request for "Check-in" search.  
+
+#### Steps to Reproduce:
+1. Install the application according to the instructions available above.
+2. Install the testing tool.
+3. Create an environment for http://localhost:3001/ in POSTMAN.
+4. Create a collection and request for Getbookingid - filter by name).
+5. Copy the endpoint from the documentation -https://restful-booker.herokuapp.com/booking?firstname=sally&lastname=brown
+
+#### Expected Result:
+According to the documentation, the application should return an array of objects containing unique booking identifiers.
+
+#### Actual Result:
+The application returns an empty response.
+
+#### Quality Characteristics according to ISO 9126:
+- Functionality: The function of searching for bookings by name does not work correctly, affecting the system's functionality.
