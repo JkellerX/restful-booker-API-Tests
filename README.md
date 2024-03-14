@@ -41,7 +41,7 @@ Here is a list of the main functionalities of the Restful-Booker application:
    **Status:** MINOR ISSUES  
    **Found Defects:** During the ping check, the application returns code 201 instead of 200.  
    
-   **Steps to Reproduce:**
+   -Steps to Reproduce:
   > 1. Install the application according to the instructions available above.
   > 2. Install the testing tool.
   > 3. Create an environment for http://localhost:3001/ in POSTMAN.
@@ -70,7 +70,7 @@ Here is a list of the main functionalities of the Restful-Booker application:
    **Description:**
    The application returns an empty response after submitting a valid request for "Check-in" search.  
    
-   **Steps to Reproduce:**
+   -Steps to Reproduce:
    >1. Install the application according to the instructions available above.
    >2. Install the testing tool.
    >3. Create an environment for http://localhost:3001/ in POSTMAN.
