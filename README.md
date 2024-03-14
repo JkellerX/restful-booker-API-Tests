@@ -42,11 +42,11 @@ Here is a list of the main functionalities of the Restful-Booker application:
    **Found Defects:** During the ping check, the application returns code 201 instead of 200.  
    
    **Steps to Reproduce:**
-   1. Install the application according to the instructions available above.
-   2. Install the testing tool.
-   3. Create an environment for http://localhost:3001/ in POSTMAN.
-   4. Create a collection and request for Get/Ping - HealthCheck.
-   5. Copy the endpoint from the documentation https://restful-booker.herokuapp.com/ping
+  > 1. Install the application according to the instructions available above.
+  > 2. Install the testing tool.
+  > 3. Create an environment for http://localhost:3001/ in POSTMAN.
+  > 4. Create a collection and request for Get/Ping - HealthCheck.
+  > 5. Copy the endpoint from the documentation https://restful-booker.herokuapp.com/ping
    
    **Expected Result:** The application should return code 200.
    **Actual Result:** The application returns code 201.
@@ -71,11 +71,11 @@ Here is a list of the main functionalities of the Restful-Booker application:
    The application returns an empty response after submitting a valid request for "Check-in" search.  
    
    **Steps to Reproduce:**
-   1. Install the application according to the instructions available above.
-   2. Install the testing tool.
-   3. Create an environment for http://localhost:3001/ in POSTMAN.
-   4. Create a collection and request for Getbookingid - filter by name).
-   5. Copy the endpoint from the documentation -https://restful-booker.herokuapp.com/booking?firstname=sally&lastname=brown
+   >1. Install the application according to the instructions available above.
+   >2. Install the testing tool.
+   >3. Create an environment for http://localhost:3001/ in POSTMAN.
+   >4. Create a collection and request for Getbookingid - filter by name).
+   >5. Copy the endpoint from the documentation -https://restful-booker.herokuapp.com/booking?firstname=sally&lastname=brown
    
    **Expected Result:**
    According to the documentation, the application should return an array of objects containing unique booking identifiers.
