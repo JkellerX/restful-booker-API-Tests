@@ -36,6 +36,10 @@ Here is a list of the main functionalities of the Restful-Booker application:
 
 ## Conducted Tests and Found Defects
 
+# Application Testing Report
+
+This document presents a comprehensive overview of the testing conducted on the application, including various functionalities, defects found, reproduction steps, expected and current results, as well as their impact on system quality characteristics.
+
 ## Authentication (Login/Logout)
 
 ### Status
@@ -45,7 +49,7 @@ Minor Issues
 The application sometimes returns status code 201 instead of 200 during ping check.
 
 ### Reproduction Steps
-1. Install the application according to the provided instructions.
+1. Install the application according to the instructions provided.
 2. Install testing tools.
 3. Set up the environment for http://localhost:3001/ in POSTMAN.
 4. Create a collection and request for Get/Ping - HealthCheck.
@@ -61,7 +65,7 @@ The application returns status code 201.
 The application provides login and logout functionality but sometimes returns incorrect response codes, affecting system functionality.
 
 ### Remarks
-Using code 200 "OK" directly indicates that the request has been successfully processed and the service is functioning correctly. Code 201 may introduce unnecessary confusion.
+Using code 200 "OK" directly indicates that the request has been successfully processed and the service is functioning correctly. Code 201 may introduce unnecessary confusion, suggesting that the operation had additional effects beyond just verifying availability. In the context of a "ping" operation, whose main purpose is to check the "health" of the application or its availability, code 200 "OK" is more appropriate and understandable for those making such checks.
 
 ## Booking Search (GetBooking)
 
@@ -87,7 +91,7 @@ The application returns an empty response when a valid request is made.
 5. Copy the endpoint from the documentation: [Filter by Name Documentation](https://restful-booker.herokuapp.com/booking?firstname=sally&lastname=brown)
 
 ### Expected Result
-The application should return an array of objects containing unique booking identifiers.
+According to the documentation, the application should return an array of objects containing unique booking identifiers.
 
 ### Current Result
 The application returns empty content.
@@ -101,21 +105,44 @@ The booking search by name function does not work correctly, impacting system fu
 Not Working
 
 ### Defects Found
-The application does not behave correctly when searching by date for check-in and check-out.
+Incorrect behavior in searching by date for checkin.
 
 ### Reproduction Steps
-1. Copy the endpoint from the documentation: [Filter by Date Documentation](https://restful-booker.herokuapp.com/booking)
-2. Create a request for GetBookingIds (filter by date - checkin or checkout).
-3. Set the parameter for checkin or checkout and provide the desired date.
-
-### Expected Result
-The application should return bookings with check-in or check-out dates equal to or greater than the specified date.
+1. Create a request POST booking - CreateBooking and create a new user.
+2. Copy the endpoint from the documentation: [Filter by Date Documentation](https://restful-booker.herokuapp.com/booking)
+3. Go to the request: GetBookingids (filter by date - checkin).
+4. Set the parameter to "checkin" and the user's check-in date value.
 
 ### Current Result
-The application returns incorrect dates.
+Returns ID and reservations whose check-in date is greater than or equal to the set check-in date. The format must be CCYY-MM-DD.
+
+### Expected Result
+Current result: code 200. Return a list of IDs omitting the required ID.
 
 ### Quality Characteristics
-The booking search by date function does not work correctly, impacting system functionality.
+Booking search by date does not work correctly, leading to incorrect results and reducing system functionality.
+
+## Booking Search by Name (Filter by date - checkout)
+
+### Status
+Not Working
+
+### Defects Found
+Incorrect behavior in searching by date for checkout.
+
+### Reproduction Steps
+1. Copy the endpoint from the documentation: [Filter by Date - Checkout Documentation](https://restful-booker.herokuapp.com/booking)
+2. Go to the request: GetBookingids (filter by date).
+3. Set the parameter to "checkout" and the value: 2024-01-30.
+
+### Current Result
+Returns older dates than required in the documentation.
+
+### Expected Result
+The application should return reservations with checkout dates greater than or equal to the set checkout date. The format must be CCYY-MM-DD.
+
+### Quality Characteristics
+Booking search by date does not work correctly, leading to incorrect results and reducing system functionality.
 
 ## Creating a Booking (CreateBooking)
 
@@ -125,27 +152,79 @@ Working
 ### Quality Characteristics
 The application allows the creation of new bookings, positively impacting system functionality.
 
-## Updating a Booking (UpdateBooking)
+## Creating a Booking (CreateBooking) without specifying the "totalprice" field
 
 ### Status
-Working with Token / Not Working with Authorization
+Not Working
 
 ### Defects Found
-The application successfully updates bookings using a token but returns a 403 Forbidden error when using Authorization.
+Receives error code 500 (Internal Server Error).
+
+### Reproduction Steps
+1. Go to / create request: POST: /booking - CreateBooking (JSON).
+2. Go to the BODY and enter the necessary details.
+3. Send the request.
+
+### Current Result
+Receives error code 500.
+
+### Expected Result
+The API should return response code 400 (Bad Request), preferably with a message explaining that the "totalprice" field is required.
+
+### Remarks
+According to the documentation, if the request is invalid or lacks required data, code 400 should be returned, informing the client of the error in their request.
 
 ### Quality Characteristics
-The error in authorization during booking update restricts system functionality.
+Failure to create a booking without specifying the total price limits system functionality.
 
-## Deleting a Booking (DeleteBooking)
+## Updating a Booking (UpdateBooking) using a token
 
 ### Status
-Working with Token / Not Working with Authorization
-
-### Defects Found
-The application successfully deletes bookings using a token but returns a 405 Method not allowed error with Authorization.
+Working
 
 ### Quality Characteristics
-The error 405 Method not allowed restricts the ability to delete bookings.
+Successful booking update using a token providing secure operation authorization.
+
+## Updating a Booking (UpdateBooking) using authorization
+
+### Status
+Not Working
+
+### Defects Found
+Application returns 403 Forbidden when using the Authorization header.
+
+### Quality Characteristics
+Authentication error during booking update limits system functionality.
+
+## Attempting to update a booking without an authorization token (PUT)
+
+### Status
+Working
+
+### Quality Characteristics
+The application is protected against unauthorized modifications, positively impacting system functionality.
+
+## Deleting a Booking (DeleteBooking) using a token
+
+### Status
+Minor Defects
+
+### Defects Found
+The application deletes bookings, but the returned status is code 201.
+
+### Quality Characteristics
+The application deletes bookings, but the returned status may be misleading to users.
+
+## Deleting a Booking (DeleteBooking) using authorization
+
+### Status
+Not Working
+
+### Defects Found
+Application returns status code 405 Method not allowed.
+
+### Quality Characteristics
+The 405 Method not allowed error limits the ability to delete bookings.
 
 ## Conclusion
 
