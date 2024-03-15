@@ -16,7 +16,7 @@ Sources:
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
 </p>
 
-# Protocol of Conducted Tests
+# API Tests Report
 
 Here is a list of the main functionalities of the Restful-Booker application:
 
@@ -36,55 +36,119 @@ Here is a list of the main functionalities of the Restful-Booker application:
 
 ## Conducted Tests and Found Defects
 
-### 1) Authentication (Login/Logout)
+## Authentication (Login/Logout)
 
-- **Status:** Minor Issues  
-- **Found Defects:** During the ping check, the application returns code 201 instead of 200.  
+### Status
+Minor Issues
 
-#### Steps to Reproduce:
-1. Install the application according to the instructions available above.
-2. Install the testing tool.
-3. Create an environment for http://localhost:3001/ in POSTMAN.
+### Defects Found
+The application sometimes returns status code 201 instead of 200 during ping check.
+
+### Reproduction Steps
+1. Install the application according to the provided instructions.
+2. Install testing tools.
+3. Set up the environment for http://localhost:3001/ in POSTMAN.
 4. Create a collection and request for Get/Ping - HealthCheck.
-5. Copy the endpoint from the documentation https://restful-booker.herokuapp.com/ping
-   
-#### Expected Result:
-The application should return code 200.
+5. Copy the endpoint from the documentation: [Ping Documentation](https://restful-booker.herokuapp.com/ping)
 
-#### Actual Result:
-The application returns code 201.
+### Expected Result
+The application should return status code 200.
 
-#### Quality Characteristics:
-- Functionality: The application provides the function of logging in and logging out, but sometimes returns an incorrect response code, affecting the system's functionality.
+### Current Result
+The application returns status code 201.
 
-### 2) Booking Search (GetBooking)
+### Quality Characteristics
+The application provides login and logout functionality but sometimes returns incorrect response codes, affecting system functionality.
 
-- **Status:** Working  
-- **No defects found.**  
+### Remarks
+Using code 200 "OK" directly indicates that the request has been successfully processed and the service is functioning correctly. Code 201 may introduce unnecessary confusion.
 
-#### Quality Characteristics according to ISO 9126:
-- Functionality: The application provides a booking search function that works correctly and meets user expectations.
+## Booking Search (GetBooking)
 
-### 3) Booking Search by Name (GetBookingIds - Filter by name)
+### Status
+Working
 
-- **Status:** Not Working  
-- **Found Defects:** The application returns an empty response after submitting a valid request.  
+### Quality Characteristics
+The application provides a booking search function that works correctly and meets user expectations.
 
-#### Description:
-The application returns an empty response after submitting a valid request for "Check-in" search.  
+## Booking Search by Name (GetBookingIds - Filter by name)
 
-#### Steps to Reproduce:
-1. Install the application according to the instructions available above.
-2. Install the testing tool.
-3. Create an environment for http://localhost:3001/ in POSTMAN.
-4. Create a collection and request for Getbookingid - filter by name).
-5. Copy the endpoint from the documentation -https://restful-booker.herokuapp.com/booking?firstname=sally&lastname=brown
+### Status
+Not Working
 
-#### Expected Result:
-According to the documentation, the application should return an array of objects containing unique booking identifiers.
+### Defects Found
+The application returns an empty response when a valid request is made.
 
-#### Actual Result:
-The application returns an empty response.
+### Reproduction Steps
+1. Install the application according to the provided instructions.
+2. Install testing tools.
+3. Set up the environment for http://localhost:3001/ in POSTMAN.
+4. Create a collection and request for Getbookingid - filter by name.
+5. Copy the endpoint from the documentation: [Filter by Name Documentation](https://restful-booker.herokuapp.com/booking?firstname=sally&lastname=brown)
 
-#### Quality Characteristics according to ISO 9126:
-- Functionality: The function of searching for bookings by name does not work correctly, affecting the system's functionality.
+### Expected Result
+The application should return an array of objects containing unique booking identifiers.
+
+### Current Result
+The application returns empty content.
+
+### Quality Characteristics
+The booking search by name function does not work correctly, impacting system functionality.
+
+## Booking Search by Date (GetBookingIds - Filter by date)
+
+### Status
+Not Working
+
+### Defects Found
+The application does not behave correctly when searching by date for check-in and check-out.
+
+### Reproduction Steps
+1. Copy the endpoint from the documentation: [Filter by Date Documentation](https://restful-booker.herokuapp.com/booking)
+2. Create a request for GetBookingIds (filter by date - checkin or checkout).
+3. Set the parameter for checkin or checkout and provide the desired date.
+
+### Expected Result
+The application should return bookings with check-in or check-out dates equal to or greater than the specified date.
+
+### Current Result
+The application returns incorrect dates.
+
+### Quality Characteristics
+The booking search by date function does not work correctly, impacting system functionality.
+
+## Creating a Booking (CreateBooking)
+
+### Status
+Working
+
+### Quality Characteristics
+The application allows the creation of new bookings, positively impacting system functionality.
+
+## Updating a Booking (UpdateBooking)
+
+### Status
+Working with Token / Not Working with Authorization
+
+### Defects Found
+The application successfully updates bookings using a token but returns a 403 Forbidden error when using Authorization.
+
+### Quality Characteristics
+The error in authorization during booking update restricts system functionality.
+
+## Deleting a Booking (DeleteBooking)
+
+### Status
+Working with Token / Not Working with Authorization
+
+### Defects Found
+The application successfully deletes bookings using a token but returns a 405 Method not allowed error with Authorization.
+
+### Quality Characteristics
+The error 405 Method not allowed restricts the ability to delete bookings.
+
+## Conclusion
+
+The application testing revealed several defects affecting various functionalities. These defects need to be addressed to ensure the system's functionality and maintain high-quality standards.
+
+For further details on each functionality, including reproduction steps, expected and current results, please refer to the corresponding sections above.
