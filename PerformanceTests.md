@@ -38,20 +38,18 @@ The application returns requests exceeding the parameter above 200 ms every few 
 
 The application returns requests exceeding the required range of 200 ms every few iterations. There seems to be no correlation indicating that issues with load/overload occur under specific conditions (e.g., at a certain time of day), as the 3 tests conducted at 3 different time intervals appear similar.
 
+<div style="display: flex; justify-content: center;">
+    <img src="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/PerformanceTests.jpg" alt="PerformanceTests" style="width: 100%; max-width: 600px;">
+</div>
 
 <div style="display: flex; justify-content: center;">
-    <div style="flex: 1;">
-        <img src="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/PerformanceTests.jpg" alt="PerformanceTests" width="300px">
-    </div>
-    <div style="flex: 1;">
-        <img src="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/PerformanceTests2.jpg" alt="PerformanceTests2" width="300px">
-    </div>
+    <img src="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/PerformanceTests2.jpg" alt="PerformanceTests2" style="width: 100%; max-width: 600px;">
 </div>
+
 <div style="display: flex; justify-content: center;">
-    <div style="flex: 1;">
-        <img src="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/PerformanceTests3.jpg" alt="PerformanceTests3" width="300px">
-    </div>
-    <div style="flex: 1;">
-        <img src="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/PerformanceTests4.jpg" alt="PerformanceTests4" width="300px">
-    </div>
+    <img src="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/PerformanceTests3.jpg" alt="PerformanceTests3" style="width: 100%; max-width: 600px;">
+</div>
+
+<div style="display: flex; justify-content: center;">
+    <img src="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/PerformanceTests4.jpg" alt="PerformanceTests4" style="width: 100%; max-width: 600px;">
 </div>
