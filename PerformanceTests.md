@@ -1,5 +1,5 @@
 <p align="left">
-    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
 </p>
 
 # Performance Tests- Restful-booker 
