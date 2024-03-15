@@ -34,11 +34,11 @@ Here is a list of the main functionalities of the Restful-Booker application:
 
 7. **Deleting a Booking (DeleteBooking):** Enables users to delete existing bookings from the system.
 
-## Conducted Tests and Found Defects
-
 # Application Testing Report
 
 This document presents a comprehensive overview of the testing conducted on the application, including various functionalities, defects found, reproduction steps, expected and current results, as well as their impact on system quality characteristics.
+
+## Conducted Tests and Found Defects
 
 ## Authentication (Login/Logout)
 
