@@ -1,6 +1,5 @@
-<div style="background-color: #f2f2f2; padding: 20px;">
 <p align="center">
-    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github"/>
 </p>
 
 # API Tests Report
@@ -25,7 +24,7 @@ Here is a list of the main functionalities of the Restful-Booker application:
 
 This document presents a comprehensive overview of the testing conducted on the application, including various functionalities, defects found, reproduction steps, expected and current results, as well as their impact on system quality characteristics.
 
-## Conducted Tests and Found Defects
+# Conducted Tests and Found Defects
 
 ## Authentication (Login/Logout)
 

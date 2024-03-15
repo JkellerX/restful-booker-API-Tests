@@ -1,49 +1,53 @@
+<p align="left">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+</p>
+
 # Restful-Booker Application Testing Report
 
 ## Introduction
 This repository contains a testing report for the Restful-Booker application. The report outlines various tests conducted on the application, including positive and negative scenarios, boundary value analysis, and equivalence class testing.
 
-## Authentication (Login/Logout)
-### Status: Minor Issues
-#### Defects Found:
-- The application sometimes returns status code 201 instead of 200 during ping check.
-#### Reproduction Steps:
-1. Install the application according to the instructions provided.
-2. Install testing tools.
-3. Set up the environment for http://localhost:3001/ in POSTMAN.
-4. Create a collection and request for Get/Ping - HealthCheck.
-5. Copy the endpoint from the documentation: [Ping Documentation](https://restful-booker.herokuapp.com/ping)
-#### Expected Result:
-The application should return status code 200.
-#### Current Result:
-The application returns status code 201.
-#### Quality Characteristics:
-The application provides login and logout functionality but sometimes returns incorrect response codes, affecting system functionality.
+# Equivalence Partitioning and Boundary Value Analysis Tests
 
-## Booking Search (GetBooking)
-### Status: Working
-#### No Defects Found.
-#### Quality Characteristics:
-The application provides a booking search function that works correctly and meets user expectations.
+## Equivalence Partitioning:
 
-## Booking Search by Name (GetBookingIds - Filter by name)
-### Status: Not Working
-#### Defects Found:
-- The application returns an empty response when a valid request is made.
-#### Reproduction Steps:
-1. Install the application according to the provided instructions.
-2. Install testing tools.
-3. Set up the environment for http://localhost:3001/ in POSTMAN.
-4. Create a collection and request for Getbookingid - filter by name.
-5. Copy the endpoint from the documentation: [Booking Search by Name Documentation](https://restful-booker.herokuapp.com/booking?firstname=sally&lastname=brown)
-#### Expected Result:
-According to the documentation, the application should return an array of objects containing unique booking identifiers.
-#### Current Result:
-The application returns empty content.
-#### Quality Characteristics:
-The booking search by name function does not work correctly, impacting system functionality.
+1) Positive Test for Creating an Authentication Token:
 
-...
+**Description:**
+- Test data from the API documentation was used, providing a correct username and password (see Attachment 1).
+- Expected result: successful creation of an authentication token.
+- Actual result: as expected.
 
-## Conclusion
-Overall, the testing report highlights various defects and issues encountered during testing of the Restful-Booker application. It provides insights into the application's functionality and areas that require improvement.
+2) Negative Test for Creating an Authentication Token:
+
+**Description:**
+- Incorrect behavior of the application - returned status code 200 and response: "reason" bad credentials.
+- Reproduction steps:
+  - Provided incorrect data: wrong username and password (see Attachment 2).
+  - Expected result: response contains an appropriate error message - 401 Unauthorized and response: "reason" bad credentials.
+  - Actual result: the application returned status code 200 and response: "reason" bad credentials.
+
+## Boundary Value Analysis:
+
+### Boundary Value Test for Date When Creating a New Reservation:
+
+**Description:**
+- Use a boundary date, e.g., the earliest possible date (year, month, day).
+- Check if the application handles this date correctly when creating a reservation.
+
+### Maximum Value for Total Reservation Price:
+
+**Description:**
+- Check if the application correctly handles the maximum possible value for the total reservation price.
+- Reproduction steps:
+  - Execute a PUT request to the /booking/:id endpoint with the reservation identifier and data, where the totalprice value is set to the maximum possible value, in this case, it is the value: 1000000000000000000000.
+  - Check the server response.
+  - Expected result: The application correctly updates the reservation with the maximum possible value of the total price. The server returns response code 200 OK and returns the updated reservation details, where the totalprice value equals the maximum possible value.
+  - Actual result: Error - the application limits the totalprice value to the unit level, even when the maximum value is provided. A response was received where totalprice equals 1.
+
+**Limitations of Techniques:**
+- Equivalence Partitioning: Does not consider extreme cases, which may lead to missing some test scenarios.
+- Boundary Value Analysis: Focuses mainly on extreme cases, often overlooking other important test cases. It may be time-consuming due to the need to analyze many boundary values.
+
+
+
