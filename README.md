@@ -226,8 +226,4 @@ Application returns status code 405 Method not allowed.
 ### Quality Characteristics
 The 405 Method not allowed error limits the ability to delete bookings.
 
-## Conclusion
 
-The application testing revealed several defects affecting various functionalities. These defects need to be addressed to ensure the system's functionality and maintain high-quality standards.
-
-For further details on each functionality, including reproduction steps, expected and current results, please refer to the corresponding sections above.
