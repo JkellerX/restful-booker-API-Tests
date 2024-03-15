@@ -1,14 +1,11 @@
-# Restful-booker Application
+p align="center">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+</p>
 
-This repository contains the Restful-booker application, a RESTful API for managing hotel bookings.
-
-## Description
-
-The Restful-booker application occasionally exhibits performance issues, specifically with the `/booking` endpoint when filtering by name. This defect report aims to document the issue, steps to reproduce, expected results, and current findings.
+# Performance Defect- Restful-booker 
 
 ## Defect Report
 
-### Title
 Performance Defect for `/booking` - GetBookingIds (Filter by name)
 
 ### Description
