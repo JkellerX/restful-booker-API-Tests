@@ -1,3 +1,4 @@
+<div style="background-color: #f2f2f2; padding: 20px;">
 <p align="center">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
 </p>
@@ -208,6 +209,3 @@ Not Working
 
 ### Defects Found
 Application returns status code 405 Method not allowed.
-
-### Quality Characteristics
-The 405 Method not allowed error limits the ability to delete bookings.
