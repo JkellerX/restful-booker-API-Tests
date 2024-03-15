@@ -1,8 +1,8 @@
 <p align="center">
-    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
 </p>
 
-# Performance Defect- Restful-booker 
+# Performance Tests- Restful-booker 
 
 ## Defect Report
 
@@ -22,7 +22,7 @@ While analyzing the application for performance, it was noticed that the applica
 6. Go to the request: GetBookingIds (filter by name).
 7. Navigate to the "Tests" tab and select the test script: "Check if response time is less than 200 ms"; save it.
 8. Run performance tests: Select the test collection and click the "Run" button in Postman.
-9. Set options: see attachment 1.
+9. Set options: see attachment.
 10. Start the test.
 11. Perform 3 tests at 3 different time intervals.
 
