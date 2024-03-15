@@ -19,7 +19,7 @@ This repository contains a testing report for the Restful-Booker application. Th
 - Actual result: as expected.
 
 <div style="display: flex; justify-content: center;">
-    <img src="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/equivalenceClass1.jpg" alt="PerformanceTests" style="width: 100%; max-width: 600px;">
+    <img src="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/equivalenceClass1.jpg" alt="equivaleceClass1" style="width: 100%; max-width: 600px;">
 </div>
 
 2) Negative Test for Creating an Authentication Token:
@@ -32,7 +32,7 @@ This repository contains a testing report for the Restful-Booker application. Th
   - Actual result: the application returned status code 200 and response: "reason" bad credentials.
 
 <div style="display: flex; justify-content: center;">
-    <img src="" alt="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/equivalenceClass2.jpg" style="width: 100%; max-width: 600px;">
+    <img src="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/equivalenceClass2.jpg" alt="equivaleceClass2" style="width: 100%; max-width: 600px;">
 </div>
 
 ## Boundary Value Analysis:
@@ -54,7 +54,7 @@ This repository contains a testing report for the Restful-Booker application. Th
   - Actual result: Error - the application limits the totalprice value to the unit level, even when the maximum value is provided. A response was received where totalprice equals 1.
 
 <div style="display: flex; justify-content: center;">
-    <img src="" alt="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/boundaryValue.jpg" style="width: 100%; max-width: 600px;">
+    <img src="https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/boundaryValue.jpg" alt="bounduaryValue" style="width: 100%; max-width: 600px;">
 </div>
 
 **Limitations of Techniques:**
