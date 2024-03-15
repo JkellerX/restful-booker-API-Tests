@@ -45,10 +45,4 @@ The application returns requests exceeding the required range of 200 ms every fe
 
 If you'd like to contribute to fixing this performance issue, please fork the repository and submit a pull request.
 
-<img src="images/PerformanceTests.jpg/>
-
-<img src="images/PerformanceTests2.jpg/>
-
-<img src="images/PerformanceTests3.jpg/>
-
-<img src='images/PerformanceTests4.jpg/>
+![PerformanceTests](https://github.com/JkellerX/restful-booker-API-Tests/blob/master/images/PerformanceTests.jpg)
